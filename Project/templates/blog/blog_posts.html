@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block head %}
+{{block.super}} | Settings Form
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="row">
+  <div class="col-md-8">
+    {% for object in object_list %}
+    <ul class="lss" >
+      <li>
+      <a href={{object.get_absolute_urlx}}><h2>{{object.title}}</h2></a>
+      <!-- <br>
+      <a href={{object.get_absolute_url}}><h2>{{object.title}}</h2></a> -->
+      <p>{{object.content|truncatewords:200|linebreaks}}</p>
+      <p id='date'>Published on {{object.publish}} by {{object.author|title}}</p>
+      </li>
+      <li>
+        <span>10</span>
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        <span><a href="#">Like</a></span>
+      </li>
+    </ul>
+    {% endfor %}
+
+    {% include 'blog/pagination.html' with page=object_list %}
+  </div>
+
+  <div class="col-md-4">
+    <h2>LOREM</h2>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</div>
+
+{% endblock %}

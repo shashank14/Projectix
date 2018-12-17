@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{block.super}} | Settings Form
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+            <h1>{{post.title}}</h1>
+            <p id='date'>
+            <b><i>
+              Published on {{post.publish}} by {{post.author|title}}
+            </i></b>
+         </p>
+        <p>{{post.content|linebreaks}}</p>
+    </div>
+  </div>
+</div>
+<div class="">
+    <a href="/{{post.id}}/share" class="btn btn-lg btn-success">Share Post By Email</a>
+</div>
+{% endblock %}
